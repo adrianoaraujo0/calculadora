@@ -15,7 +15,6 @@ class CalculatorPage extends StatelessWidget {
       builder: (context) {
         return SafeArea(
           child: Scaffold(
-            backgroundColor:  Colors.black,
             body: Column(
              children: [ 
                 screen(context),
@@ -59,6 +58,7 @@ class CalculatorPage extends StatelessWidget {
       color: Colors.black,
       height: MediaQuery.of(context).size.height * 0.3,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           darkModeButton(),
           Row(
@@ -133,8 +133,8 @@ class CalculatorPage extends StatelessWidget {
       ),
       child: Center(
         child: button.name !=null 
-        ? Text(button.name!, style: const TextStyle(color: Colors.white, fontSize: 25))
-        : Icon(button.icon, color: Colors.purple)
+        ? Text(button.name!, style: const TextStyle(fontSize: 25))
+        : Icon(button.icon)
       ),
     );
   }
