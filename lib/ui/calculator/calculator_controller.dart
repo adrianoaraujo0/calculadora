@@ -1,27 +1,30 @@
-import 'package:flutter/cupertino.dart';
-import 'package:rxdart/rxdart.dart';
+import 'package:calculadora/model/button.dart';
+import 'package:mobx/mobx.dart';
+part 'calculator_controller.g.dart';
 
-class CalculatorController{
+class CalculatorController = _CalculatorControllerBase with _$CalculatorController;
 
-  List<TextEditingController> controllers = [
-    TextEditingController(),
-    TextEditingController(),
-    TextEditingController(),
-  ];
-  BehaviorSubject<List<String>> controllerScreen = BehaviorSubject<List<String>>();
+abstract class _CalculatorControllerBase with Store {
 
-  double sum(double value1, double value2) => value1 + value2;
-  
-  void clearAll(){
-    controllers[0].clear();
-    controllers[1].clear();
-    controllerScreen.sink.add(
-      [
-        controllers[0].text,
-        controllers[1].text,
-        controllers[2].text,
-       ]
-    );
+
+  @observable
+  String textScreen = "";
+
+  @action
+  void setTextScreen(Button button) {
+    if(button.name != null ){
+      textScreen += button.name!;
+    }else{
+      textScreen += " ${button.value!} ";
+    }
+  }
+
+  @action
+  void calculate(String operation, ){
+    if(operation == "+"){
+
+    }
+
   }
 
 }

@@ -1,13 +1,12 @@
-import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 
 class Button{
 
   String? name;
   IconData? icon;
-  Function? operation;
+  String? value;
   Color color;
 
-  Button({this.name, this.icon, this.operation,required this.color});
+  Button({this.name, this.icon, this.value,required this.color});
 
 }
